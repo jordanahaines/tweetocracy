@@ -1,0 +1,34 @@
+{
+  "name": "tweetocracy",
+  "version": "1.0.0",
+  "description": "Tweetocracy is a Twitter bot that pops information bubbles and exposes people to new ideas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordanahaines/tweetocracy.git"
+  },
+  "keywords": [
+    "twitter"
+  ],
+  "author": "jordanahaines",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jordanahaines/tweetocracy/issues"
+  },
+  "homepage": "https://github.com/jordanahaines/tweetocracy#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "chalk": "^2.4.1",
+    "figlet": "^1.2.1",
+    "inquirer": "^6.2.1",
+    "moment": "^2.23.0",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.4.0",
+    "shelljs": "^0.8.3",
+    "twit": "^2.2.11",
+    "underscore": "^1.9.1"
+  }
+}
