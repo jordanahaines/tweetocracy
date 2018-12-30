@@ -13,10 +13,10 @@ const TweetSchema = require('../models/tweet');
 mongoose.connect('mongodb://localhost:27017/TweetDB', {useNewUrlParser: true});
 
 const TWITTER_AUTH = {
-	consumer_key: 'MSgZJRYYkUdB7Xw28wsTLA',
-	consumer_secret: 'y1fhbe7LQFpE9Q75ArAHjuhwsMZOIHSXJdjGtj1GM',
-	access_token: '727147068-UP9MGGPrADquWsD6MU5pAh1WRRpKnlqFafTdGRGw',
-	access_token_secret: 'GkNdipt0FmjpVqEu2GWhVSlmeQswxikV9jACDD2bEXXtZ',
+	consumer_key: process.env.TWITTER_CONSUMER_KEY,
+	consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+	access_token: process.env.TWITTER_ACCESS_TOKEN,
+	access_token_secret: process.env.TWITTER_ACCESS_SECRET,
 }
 
 const TwitterClient = new Twit(_.extend({}, TWITTER_AUTH, {
@@ -50,7 +50,7 @@ module.exports = {
 	getTweets: async function(keyword) {
 		let TweetModel = mongoose.model('Tweet', TweetSchema);
 
-		let query = keyword + ' since:' + (moment().subtract(1, 'd')).format("YYYY-MM-DD");
+		let query = keyword + ' -RT since:' + (moment().subtract(1, 'd')).format("YYYY-MM-DD");
 		let queryData = {
 			q: query,
 			count: 100,

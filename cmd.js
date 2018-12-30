@@ -1,22 +1,42 @@
 #!/usr/bin/env node
 
 /**
- * Command line interface for interacting with Tweetocracy.
+ * Command line interface for interacting with Tweetocracy. Runs process that gets tweets
  */
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 const figlet = require("figlet");
 const shell = require("shelljs");
 
+// Load our environmental variables
+const dotenv = require('dotenv');
+dotenv.config();
+
 const TwitterClient = require('./utils/twitter');
+
+const KEYWORDS = [
+	'#TrumpShutdown',
+	'#SchumerShutdown',
+	'#MAGA',
+	'#Kavanaugh',
+	'#wall',
+	'#border',
+	'#highered',
+	'#Mueller',
+	'#treason',
+	'#DACA',
+	'#ACA',
+	'#RBG',
+]
 
 const run = async () => {
 	let getTweets = function() {
-		TwitterClient.getTweets('#TrumpShutdown').then((response) => {
+		let keyword = KEYWORDS[Math.floor(Math.random() * KEYWORDS.length)];
+		TwitterClient.getTweets(keyword).then((response) => {
 			console.log("Done");
 		})
 	}
-	let interval = setInterval(getTweets, 12000);
+	let interval = setInterval(getTweets, 10000);
 	getTweets();
 }
 
