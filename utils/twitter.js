@@ -57,7 +57,7 @@ module.exports = {
 			tweet_mode: 'extended',
 		}
 		// See if there is a latest tweet in our database
-		let result = await TweetModel.findOne().sort('-created').exec();
+		let result = await TweetModel.findOne({search_keyword: keyword}).sort('-created').exec();
 		if (result) {
 			queryData.since_id = result.tweet_id_str;
 		}

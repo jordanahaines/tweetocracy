@@ -32,6 +32,7 @@ const KEYWORDS = [
 const run = async () => {
 	let getTweets = function() {
 		let keyword = KEYWORDS[Math.floor(Math.random() * KEYWORDS.length)];
+		console.log("Keyword: ", keyword);
 		TwitterClient.getTweets(keyword).then((response) => {
 			console.log("Done");
 		})
