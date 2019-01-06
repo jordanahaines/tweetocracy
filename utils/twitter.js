@@ -50,7 +50,7 @@ module.exports = {
 	getTweets: async function(keyword) {
 		let TweetModel = mongoose.model('Tweet', TweetSchema);
 
-		let query = keyword + ' -RT since:' + (moment().subtract(1, 'd')).format("YYYY-MM-DD");
+		let query = keyword + '-filter:links -RT lang:en since:' + (moment().subtract(1, 'd')).format("YYYY-MM-DD");
 		let queryData = {
 			q: query,
 			count: 100,

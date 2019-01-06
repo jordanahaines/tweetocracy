@@ -21,7 +21,8 @@ const KEYWORDS = [
 	'#Kavanaugh',
 	'#wall',
 	'#border',
-	'#highered',
+	'@AOC',
+	'#GreenNewDeal',
 	'#Mueller',
 	'#treason',
 	'#DACA',
@@ -37,7 +38,7 @@ const run = async () => {
 			console.log("Done");
 		})
 	}
-	let interval = setInterval(getTweets, 10000);
+	let interval = setInterval(getTweets, 5000);
 	getTweets();
 }
 
